@@ -1,5 +1,5 @@
 SELECT
-    COUNT(plutos.*)
+    SUM(plutos.unitsres) AS total_unitsres, SUM(plutos.bldgarea) AS total_bldgarea, COUNT(plutos.*) AS total_buildings
 FROM pluto_records AS plutos
 WHERE plutos.numfloors BETWEEN 4 AND 6 -- Taller than IBC allows, within NYC BC single-stair height limit
 -- AND plutos.yearbuilt >= 2000 -- Post-sprinkler requirement
