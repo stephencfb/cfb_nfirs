@@ -30,9 +30,11 @@ SELECT
     plutos.address,
     plutos.borough,
     plutos.yearbuilt,
-    nfirs_deaths.other_deaths,
-    nfirs_deaths.fire_service_deaths,
-    medias.civilian_deaths
+    nfirs_deaths.other_deaths AS nfirs_other_deaths,
+    nfirs_deaths.fire_service_deaths AS nfirs_fire_service_deaths,
+    medias.civilian_deaths AS media_civilian_deaths,
+    GREATEST(nfirs_deaths.other_deaths, medias.civilian_deaths) AS likely_civilian_deaths,
+    CASE WHEN ((nfirs_deaths.fire_service_deaths IS NOT NULL AND nfirs_deaths.fire_service_deaths != 0) OR ((nfirs_deaths.other_deaths IS NOT NULL AND medias.civilian_deaths IS NOT NULL) AND nfirs_deaths.other_deaths != medias.civilian_deaths)) THEN TRUE ELSE FALSE END AS death_complication -- Is there a firefighter death, or does the number of civilian deaths reported to NFIRS differ from the manual count of deaths?
 FROM residential_plutos AS plutos
 LEFT JOIN nfirs_deaths
 ON plutos.id = nfirs_deaths.pluto_record_id
