@@ -1,0 +1,3 @@
+incident_type,nfirs_basic_incident_id,nfirs_fire_incident_id,alarm_at,date_of_fire,address,borough,yearbuilt,other_deaths,fire_service_deaths,civilian_deaths
+111,50889237,959739,2021-12-15 04:34:00 UTC,2021-12-15,71-02 162 STREET,QN,2006,2,0,2
+,,,,2021-03-03,351 EAST 54 STREET,MN,2001,,,1
