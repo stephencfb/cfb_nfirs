@@ -3,7 +3,6 @@ WITH single_stair_plutos AS (
         plutos.*
     FROM pluto_records AS plutos
     WHERE plutos.numfloors BETWEEN 4 AND 6 -- Taller than IBC allows, within NYC BC single-stair height limit
-    -- AND plutos.yearbuilt >= 2000 -- Post-sprinkler requirement
     AND -- Single-stair buildings...
     (plutos.unitsres >= 3 -- At least three units (definitely has sprinklers)
     AND plutos.yearbuilt >= 1968 -- Built since single-stair allowed in 1968 BC
