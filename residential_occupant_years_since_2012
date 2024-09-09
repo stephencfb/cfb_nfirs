@@ -1,0 +1,4 @@
+SELECT SUM(unitsres * (2024 - GREATEST(yearbuilt::INT, 2012))) * 2.43
+FROM pluto_records;
+
+-- Result: 103,107,903.48
