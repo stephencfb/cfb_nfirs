@@ -1,4 +1,6 @@
-SELECT SUM(unitsres * (2024 - GREATEST(yearbuilt::INT, 2012))) * 2.43
+-- Goal here is to get the number of occupant-years of residential units in NYC since 2012.
+
+SELECT SUM(unitsres * (2024 - GREATEST(yearbuilt::INT, 2012))) * 2.43 -- Get the years elapsed since the building was built OR 2012, multiple by the number of units in the building, muliply that by 2.43 (average number of occupants per dwelling unit)
 FROM pluto_records;
 
 -- Result: 103,107,903.48
